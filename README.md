@@ -14,10 +14,10 @@ Differentation between media querys can definetley make your head spin.
 
 To further elaborate we have a grid layout for the posts with the use of the auto-fit function. The media-querys specify that at certain widths such as a smart device which would be much smaller than a desktop, we will shift the posts and the profile to fit the users screen for optimal user accsesibilty.
 
-![desktop veiw](../images/grid-Screenshot%202025-05-30%20094855.png)
+![desktop veiw](./images/grid-Screenshot%202025-05-30%20094855.png)
 \*desktop
 
-![mobile veiw](../images/mobile%20veiw-Screenshot%202025-05-30%20100010.png)
+![mobile veiw](./images/mobile%20veiw-Screenshot%202025-05-30%20100010.png)
 \*mobile
 
 Also the use of elipses on text overflow for the profile description and for titles is helpful for is users have a little too much to say.
