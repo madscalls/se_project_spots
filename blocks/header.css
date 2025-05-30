@@ -1,0 +1,16 @@
+.header {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.header__logo {
+  margin: 0 auto;
+  height: 26px;
+  width: 94px;
+}
+
+.header__menu-bar {
+  width: 100%;
+}
