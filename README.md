@@ -24,7 +24,9 @@ Also the use of elipses on text overflow for the profile description and for tit
 
 Thank you for reveiwing my project and I will continue on learning!
 
-- The link to your deployed project on GitHub Pages
+- Pageshttps://github.com/madscalls/se_project_spots
+
+### Overview Video
 
 **Figma**
 
