@@ -4,10 +4,9 @@
   grid-template-columns: repeat(auto-fit, 413px);
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
   justify-content: center;
-  gap: 40px 20px; /*Please note that this value should be different on mobile screens, it's neccessary to change this value in a media query.*/
+  gap: 40px 20px;
   padding-bottom: 20px;
   margin: 0;
-  /*A bottom padding in this section is missing. Please note that we need different values for desktop and mobile screens.*/
 }
 
 .cards {

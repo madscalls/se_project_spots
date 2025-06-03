@@ -28,6 +28,8 @@ Thank you for reveiwing my project and I will continue on learning!
 
 ### Overview Video
 
+[https://www.loom.com/share/ef068a6fc2a74e72905f414e6e2bbc2f?sid=e50ec4d9-323c-433e-81f3-7f6745437faa]
+
 **Figma**
 
 - [Link to the project on Figma](https://www.figma.com/file/BBNm2bC3lj8QQMHlnqRsga/Sprint-3-Project-%E2%80%94-Spots?type=design&node-id=2%3A60&mode=design&t=afgNFybdorZO6cQo-1)
