@@ -1,19 +1,18 @@
 .card {
-max-width: 413px; /*?????????*/
-height: 445px;
+  max-width: 413px;
+  height: 445px;
 }
 
 .card__like-btn {
   background-image: url(../images/Like\ Icon.svg);
-  width: 23px; /*Please note that like-button needs to be smaller on mobile screens. The difference is within an allowed error, but it would look a bit better.
-Keep in mind that you might need to apply proper values for background-size and background-repeat to make the icon display correctly.*/
+  width: 23px;
   height: 20px;
   border: none;
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 40%;
-  cursor: pointer:
+  cursor: pointer;
 }
 
 .card__like-btn:hover {
@@ -57,19 +56,19 @@ Keep in mind that you might need to apply proper values for background-size and 
 
 @media screen and (max-width: 419px) {
   /*add line-height*/
-  .card__image{
-    width:288px;
-    height:288px;
+  .card__image {
+    width: 288px;
+    height: 288px;
   }
 
-  .card__content{
+  .card__content {
     line-height: 100%;
   }
 
-.card{
-  width: 100%;
-  height: 288px;
-}
+  .card {
+    width: 100%;
+    height: 288px;
+  }
 
   .card__title {
     font-size: 16px;
