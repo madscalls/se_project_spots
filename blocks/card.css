@@ -36,7 +36,7 @@
   object-fit: cover;
   display: block;
   border-radius: 8px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 .card__title {

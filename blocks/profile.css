@@ -12,12 +12,13 @@
   max-width: 190px;
   height: auto;
   width: 100%;
+  border-radius: 8px;
 }
 
 .profile__new-post_btn {
   margin-left: auto;
   order: 1;
-  align-self: end;
+  align-self: flex-end;
   color: rgba(252, 245, 229);
   opacity: 1;
   font-size: 16px;
@@ -32,6 +33,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border: none;
 }
 
 .profile__edit-btn_icon {
@@ -93,7 +95,7 @@
   font-weight: 500;
   font-size: 32px;
   line-height: 1;
-  max-width: 420px;
+  max-width: 420px; /*wants me to remove elipses in media query but it gets rid of it*/
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -142,10 +144,9 @@
   }
 
   .profile__new-post_btn {
-    align-self: flex-end;
+    /*align-self: flex-end;*/
     margin: 0 auto;
     text-align: center;
-    cursor: pointer;
   }
   .profile__edit-btn {
     margin-bottom: 20px;
