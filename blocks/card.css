@@ -59,10 +59,15 @@
   .card__image {
     width: 288px;
     height: 288px;
+    margin: auto;
   }
 
   .card__content {
     line-height: 100%;
+    padding-top: 12px;
+    padding-bottom: 20px;
+    padding-right: 65px;
+    padding-left: 65px; /*trouble centering*/
   }
 
   .card {

@@ -7,6 +7,7 @@
   justify-content: center;
   gap: 40px 20px;
   padding-bottom: 20px;
+  padding-left: 0; /*Please note that this value should be different on mobile screens, it's neccessary to change this value in a media query.*/
   margin: 0;
 }
 
@@ -14,11 +15,10 @@
   padding-top: 20px;
 }
 
-/*320px-419px
 @media screen and (max-width: 419px) {
   .cards__list {
-    grid-template-columns: repeat(auto-fit, 288px);
-    padding: 0;
+    max-width: 400px;
+    padding: 0 16px; /*trying to center cards list*/
+    padding-bottom: 70px;
   }
 }
-*/
