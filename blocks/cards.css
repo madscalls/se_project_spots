@@ -8,7 +8,6 @@
   gap: 40px 20px;
   padding-bottom: 20px;
   padding-left: 0; /*Please note that this value should be different on mobile screens, it's neccessary to change this value in a media query.*/
-  margin: 0;
 }
 
 .cards {
@@ -20,5 +19,6 @@
     max-width: 400px;
     padding: 0 16px; /*trying to center cards list*/
     padding-bottom: 70px;
+    margin: 0 16px;
   }
 }
