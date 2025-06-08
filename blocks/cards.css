@@ -20,5 +20,7 @@
     padding: 0 16px; /*trying to center cards list*/
     padding-bottom: 70px;
     margin: 0 16px;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 288);
   }
 }
