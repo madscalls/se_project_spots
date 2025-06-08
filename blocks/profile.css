@@ -16,7 +16,7 @@
   border-radius: 8px;
 }
 
-.profile__new-post_btn {
+.profile__new-post-btn {
   margin-left: auto;
   order: 1;
   align-self: flex-end;
@@ -37,7 +37,7 @@
   border: none;
 }
 
-.profile__edit-btn_icon {
+.profile__edit-btn-icon {
   padding-right: 8px;
   max-width: 12px;
   max-height: 12px;
@@ -47,7 +47,7 @@
   margin-right: 8px;
 }
 
-.profile__new-post_btn:hover {
+.profile__new-post-btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }
@@ -125,9 +125,6 @@
     padding: 0;
   }
 
-  .profile .page__section {
-    padding-bottom: 20px;
-  }
   .profile__column {
     flex-direction: column;
     align-items: center;
@@ -141,7 +138,7 @@
     align-items: center;
   }
 
-  .profile__new-post_btn {
+  .profile__new-post-btn {
     /*align-self: flex-end;*/
     margin: 0 auto;
     margin-bottom: 20px;
@@ -152,7 +149,6 @@
     margin-bottom: 20px;
     margin-top: 32px;
     text-align: center;
-    cursor: pointer;
     align-self: center;
   }
 

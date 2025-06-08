@@ -1,6 +1,6 @@
 .card {
   max-width: 413px;
-  height: 445px;
+  /*height: 445px;*/
 }
 
 .card__like-btn {
@@ -72,7 +72,7 @@
 
   .card {
     width: 100%;
-    height: 288px;
+    /*height: 288px;*/
   }
 
   .card__title {
