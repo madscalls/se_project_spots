@@ -1,5 +1,5 @@
 .modal {
-  visibility: visible;
+  visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,6 +59,7 @@
 .modal__label {
   color: #212121;
   opacity: 70%;
+  padding-bottom: 8px;
   font-size: 16px; /*i could add a div for the 8px padding-bottom??????*/
 }
 
@@ -73,11 +74,11 @@
 }
 
 .modal__input::placeholder {
-  color: rgba(33, 33, 33, 0.3);
+  color: #212121;
+  opacity: 0.3;
 }
 
 .modal__input {
-  /*need to fix input color*/
   font-size: 20px;
   font-weight: 500;
   border-radius: 8px;
@@ -102,4 +103,34 @@
   left: 355px;
   border-radius: 8px;
   margin: 0;
+}
+
+@media screen and (max-width: 419px) {
+  .modal__title {
+    font-size: 20px;
+  }
+  .modal__label {
+    font-size: 16px;
+  }
+  .modal__container {
+    width: 300px;
+  }
+
+  .modal__form {
+    width: 276px;
+  }
+  .modal__input {
+    width: 276px;
+    font-size: 16px;
+  }
+
+  .modal__container {
+    margin: 0;
+    padding: 12px;
+  }
+
+  .modal__header {
+    margin: 0;
+    padding: 0;
+  }
 }
