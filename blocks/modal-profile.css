@@ -1,5 +1,7 @@
 .modal {
-  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+  /*opacity transition styles*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +21,9 @@
 }
 
 .modal_is-opened {
+  opacity: 1;
   visibility: visible;
+  transition-delay: 0s;
 }
 
 .modal__close-btn {
@@ -60,7 +64,7 @@
   color: #212121;
   opacity: 70%;
   padding-bottom: 8px;
-  font-size: 16px; /*i could add a div for the 8px padding-bottom??????*/
+  font-size: 16px;
 }
 
 .modal__save-btn {
