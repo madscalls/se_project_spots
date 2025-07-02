@@ -23,8 +23,13 @@ const addCloseButton = addModal.querySelector(".modal__close-btn");
 const addPostForm = addModal.querySelector(".modal__form");
 const postImageInput = document.querySelector("#profile-new-img-link");
 const postCaptionInput = document.querySelector("#profile-img-caption");
-const cardsList = document.querySelector(".cards__list");
 
+/*coulnt get it to work but will come back to it- broke my modals
+//modal is opened
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
+*/
 //opens edit profile modal
 editButton.addEventListener("click", () => {
   editProfileNameInput.value = profileNameEl.textContent;
@@ -61,8 +66,8 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 //handleAddPostsubmit
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const imageLink = console.log("imagelink");
-  const caption = console.log("img photo");
+  console.log("imagelink");
+  console.log("img photo");
   addModal.classList.remove("modal_is-opened");
 }
 
