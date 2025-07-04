@@ -2,34 +2,33 @@
 const editButton = document.querySelector(".profile__edit-btn");
 const editModal = document.querySelector("#edit-modal");
 const editCloseButton = editModal.querySelector(".modal__close-btn");
+const editProfileNameInput = editModal.querySelector("#profile-name-input");
+const editProfileDescriptionInput = editModal.querySelector(
+  "#profile-description-input"
+);
+const editProfileForm = editModal.querySelector(".modal__form");
 
 //Elements displaying profile info
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
-//Input fields inside the modal
-const editProfileNameInput = document.querySelector("#profile-name-input");
-const editProfileDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
-const editProfileForm = editModal.querySelector(".modal__form");
-
-//Add Modal Variables
+//new post Modal Variables
 const addButton = document.querySelector(".profile__new-post-btn");
 const addModal = document.querySelector("#add-modal");
 const addCloseButton = addModal.querySelector(".modal__close-btn");
-
-//new post modal
 const addPostForm = addModal.querySelector(".modal__form");
-const postImageInput = document.querySelector("#profile-new-img-link");
-const postCaptionInput = document.querySelector("#profile-img-caption");
+const postImageInput = addModal.querySelector("#profile-new-img-link");
+const postCaptionInput = addModal.querySelector("#profile-img-caption");
 
-/*coulnt get it to work but will come back to it- broke my modals
-//modal is opened
+//open and close modals
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
 }
-*/
+
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
 //opens edit profile modal
 editButton.addEventListener("click", () => {
   editProfileNameInput.value = profileNameEl.textContent;
@@ -38,27 +37,21 @@ editButton.addEventListener("click", () => {
 });
 
 //closes edit profile modal
-editCloseButton.addEventListener("click", () =>
-  editModal.classList.remove("modal_is-opened")
-);
+editCloseButton.addEventListener("click", () => closeModal(editModal));
 
 //opens new post modal
-addButton.addEventListener("click", () =>
-  addModal.classList.add("modal_is-opened")
-);
+addButton.addEventListener("click", () => openModal(addModal));
 
 //closes new post modal
 
-addCloseButton.addEventListener("click", () =>
-  addModal.classList.remove("modal_is-opened")
-);
+addCloseButton.addEventListener("click", () => closeModal(addModal));
 
-//handleEditProfileSubmit
+//handles edit profile submit
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
   profileNameEl.textContent = editProfileNameInput.value;
   profileDescriptionEl.textContent = editProfileDescriptionInput.value;
-  editModal.classList.remove("modal_is-opened");
+  closeModal(editModal);
 }
 
 editProfileForm.addEventListener("submit", handleEditProfileSubmit);
@@ -66,8 +59,8 @@ editProfileForm.addEventListener("submit", handleEditProfileSubmit);
 //handleAddPostsubmit
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  console.log("imagelink");
-  console.log("img photo");
+  console.log("Image Link:", postImageInput.value);
+  console.log("Caption:", postCaptionInput.value);
   addModal.classList.remove("modal_is-opened");
 }
 
