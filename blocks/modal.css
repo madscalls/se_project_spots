@@ -77,7 +77,8 @@
   background-color: #212121;
   border-radius: 8px;
   color: #fcf5e5;
-  /*width: 156px; how can i make it so this wont override the media query?*/
+  max-width: 156px;
+  width: 100%;
   padding: 18px 32px;
   border: none;
   font-size: 16px;
@@ -147,6 +148,6 @@
   }
   .modal__save-btn {
     padding: 18px 32px;
-    width: 276px;
+    max-width: none;
   }
 }
