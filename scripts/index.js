@@ -1,5 +1,5 @@
 //photo array
-const initalCards = [
+const initialCards = [
   {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
@@ -94,7 +94,7 @@ function handleAddCardSubmit(evt) {
 addPostForm.addEventListener("submit", handleAddCardSubmit);
 
 //looping through cards
-initalCards.forEach(function (item) {
+initialCards.forEach(function (item) {
   console.log(item.name);
   console.log(item.link);
 });
