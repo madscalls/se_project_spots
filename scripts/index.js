@@ -60,7 +60,7 @@ function closeModal(modal) {
 editButton.addEventListener("click", () => {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  editModal.classList.add("modal_is-opened");
+  openModal(editModal);
 });
 
 //closes edit profile modal
