@@ -26,10 +26,9 @@
 }
 
 .modal__close-btn {
-  /*HELP*/
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 26px;
+  right: 50px;
   height: 40px;
   width: 40px;
   opacity: 40%;
@@ -39,14 +38,14 @@
   transition: 0.3s;
 }
 
-.modal__close-preview {
+.modal__close-btn_type_preview {
   top: 0;
   right: -52.5px;
   filter: invert(100%);
   opacity: 100%;
 }
 
-.modal__close-preview:hover {
+.modal__close-btn_type_preview:hover {
   /*get hover effect*/
   filter: invert(40%);
 }
@@ -167,20 +166,20 @@
 }
 
 .modal__caption {
-  display: flex;
   color: white;
   background-color: #212121;
-  height: 32px;
-  width: 214px;
   border-radius: 8px;
   font-size: 20px;
   font-weight: 500;
   line-height: 120%;
-  align-items: center;
-  justify-content: center;
+  left: 0;
+  top: calc(100% + 10px);
+  position: absolute;
+  margin: 0;
+  padding: 4px 8px;
 }
 
-.modal__type_preview {
+.modal_type_preview {
   padding: 0 16px;
 }
 
@@ -191,6 +190,10 @@
   }
   .modal__image {
     max-width: unset;
+  }
+  .modal__caption {
+    font-size: 16px;
+    font-weight: 500;
   }
 }
 
@@ -217,5 +220,9 @@
   .modal__save-btn {
     padding: 18px 32px;
     max-width: none;
+  }
+  .modal__close-btn {
+    top: 10px;
+    right: 10px;
   }
 }
