@@ -55,7 +55,6 @@ const postCaptionInput = addModal.querySelector("#profile-img-caption");
 //preview modal
 const modalPreview = document.querySelector("#preview-modal");
 
-//const modalPreview = document.querySelector(".modal__type_preview");
 const modalPreviewClose = modalPreview.querySelector(
   ".modal__close-btn_type_preview"
 );
@@ -101,13 +100,38 @@ function handleImageClick(data) {
   openModal(modalPreview);
 }
 
-//open and close modals
+//open modals
 function openModal(modal) {
   modal.classList.add("modal_is-opened");
+
+  // Esc key evt
+  function handleEscClose(evt) {
+    if (evt.key === "Escape") {
+      closeModal(modal);
+    }
+  }
+
+  // Click evt
+  function handleOutsideClick(evt) {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  }
+
+  modal._handleEscClose = handleEscClose;
+  modal._handleOutsideClick = handleOutsideClick;
+
+  document.addEventListener("keydown", handleEscClose);
+  document.addEventListener("mousedown", handleOutsideClick);
 }
 
+//close modal with esc and keydown
 function closeModal(modal) {
   modal.classList.remove("modal_is-opened");
+
+  // removes listeners
+  document.removeEventListener("keydown", modal._handleEscClose);
+  document.removeEventListener("mousedown", modal._handleOutsideClick);
 }
 
 //opens edit profile modal
