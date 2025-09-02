@@ -175,7 +175,8 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardElement);
 
   addPostForm.reset();
-  //disableButton(cardSubmitBtn); //added*****************
+  resetValidation(addPostForm, settings);
+  disableButton(cardSubmitBtn); //added*****************
   closeModal(addModal);
 }
 
