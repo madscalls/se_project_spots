@@ -14,5 +14,6 @@ desktop.ini
 
 # Node, Python, etc. (only if used)
 node_modules/
+dist/
 .env
 *.log

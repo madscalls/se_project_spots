@@ -1,3 +1,17 @@
+import { enableValidation, settings } from "../scripts/validation.js";
+import "./index.css";
+
+//profile pics
+import logoSrc from "../images/Logo.svg";
+import avatarSrc from "../images/avatar.jpg";
+import editIconSrc from "../images/Edit-Icon.svg";
+import plusIconSrc from "../images/Plus-icon.svg";
+
+document.getElementById("header-logo").src = logoSrc;
+document.getElementById("profile-avatar").src = avatarSrc;
+document.getElementById("edit-icon").src = editIconSrc;
+document.getElementById("plus-icon").src = plusIconSrc;
+
 //photo array
 const initialCards = [
   {
@@ -191,3 +205,5 @@ initialCards.forEach(function (item) {
 modalPreviewClose.addEventListener("click", () => {
   closeModal(modalPreview);
 });
+
+enableValidation(settings);
