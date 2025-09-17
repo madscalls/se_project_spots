@@ -1,6 +1,6 @@
 //config
 export const settings = {
-  formSelector: ".modal__form",
+  formSelector: ".modal__form:not(#delete-form)",
   inputSelector: ".modal__input", //inputEl??
   submitButtonSelector: ".modal__save-btn",
   inactiveButtonClass: "modal__save-btn_disabled",
@@ -20,7 +20,6 @@ const hideInputError = (formEl, inputEl, config) => {
   const errorMsgID = `#${inputEl.id}-error`;
   const errorMsgEl = formEl.querySelector(errorMsgID);
   errorMsgEl.textContent = "";
-  inputEl.classList.remove(config.inputErrorClass);
   inputEl.classList.remove(config.inputErrorClass);
 };
 //validates input and show/hide accordingly
@@ -48,7 +47,7 @@ const toggleButtonState = (inputList, buttonEl, config) => {
 };
 
 //disable submit for styling
-const disableButton = (buttonEl, config) => {
+export const disableButton = (buttonEl, config) => {
   buttonEl.classList.add(config.inactiveButtonClass);
   buttonEl.disabled = true;
 };
@@ -60,7 +59,7 @@ const enableButton = (buttonEl, config) => {
 };
 
 //removes error msgs when we re0pen modal
-function resetValidation(formEl, config) {
+export function resetValidation(formEl, config) {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonEl = formEl.querySelector(config.submitButtonSelector);
 
@@ -95,7 +94,7 @@ export const enableValidation = (config) => {
 };
 
 //activates form validation
-enableValidation(settings);
+//enableValidation(settings);
 
 // close modal with Esc
 document.addEventListener("keydown", (evt) => {
