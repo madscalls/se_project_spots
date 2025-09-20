@@ -27,38 +27,6 @@ document.getElementById("edit-icon").src = editIconSrc;
 document.getElementById("avatar-edit-icon").src = avatarEditIconSrc;
 document.getElementById("plus-icon").src = plusIconSrc;
 
-// //photo array
-// const initialCards = [
-//   {
-//     name: "Golden Gate Bridge",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-//   },
-//   {
-//     name: "Val Thorens",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-//   },
-//   {
-//     name: "Restaurant terrace",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-//   },
-//   {
-//     name: "An outdoor cafe",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-//   },
-//   {
-//     name: "A very long bridge, over the forest in dubai, very scary view",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-//   },
-//   {
-//     name: "Tunnel with morning light",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-//   },
-//   {
-//     name: "Mountain house",
-//     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-//   },
-// ];
-
 //Edit Modal Variables
 const editButton = document.querySelector(".profile__edit-btn");
 const editModal = document.querySelector("#edit-modal");
@@ -184,8 +152,7 @@ function handleDeleteSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      submitBtn.textContent = prev;
-      submitBtn.disabled = false;
+      setButtonText(submitBtn, "Deleting..."); //check
     });
 }
 
@@ -258,7 +225,7 @@ addButton.addEventListener("click", () => openModal(addModal));
 
 addCloseButton.addEventListener("click", () => closeModal(addModal));
 
-//handles edit profile submit
+//handles edit profile submit    ---- FIX RELOAD NAME
 function handleEditProfileSubmit(evt) {
   evt.preventDefault();
 
@@ -273,11 +240,11 @@ function handleEditProfileSubmit(evt) {
     .then((user) => {
       profileNameEl.textContent = user.name;
       profileDescriptionEl.textContent = user.about;
-      closeModal(editModal);
     })
     .catch(console.error)
     .finally(() => {
       setButtonText(submitBtn, false);
+      closeModal(editModal);
     });
 }
 
@@ -337,15 +304,16 @@ avatarCloseBtn.addEventListener("click", () => closeModal(avatarModal));
 
 avatarForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const url = avatarForm.querySelector("#profile-avatar-input").value;
+  const avatar = avatarForm.querySelector("#profile-avatar-input").value;
   const submitBtn = e.submitter;
   setButtonText?.(submitBtn, true);
 
   api
-    .updateAvatar(url)
-    .then((user) => {
-      document.getElementById("profile-avatar").src = user.avatar;
+    .updateAvatar(avatar)
+    .then((avatar) => {
+      document.getElementById("profile-avatar").src = avatar;
       avatarForm.reset();
+      disableButton(submitBtn); //check
       closeModal(avatarModal);
     })
     .catch(console.error)

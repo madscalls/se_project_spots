@@ -11,4 +11,9 @@ export function setButtonText(
   }
 }
 
-//TODO -- IMPLEMENT LOADING TEXT FOR ALL OTHER FORM SUBMISSIONS
+// _checkResponse(res) {
+// .then((res) => {
+//       if (res.ok) return res.json();
+//       return Promise.reject(`Error: ${res.status}`);
+//     });
+// }
