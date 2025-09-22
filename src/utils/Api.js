@@ -4,10 +4,12 @@ class Api {
     this._headers = headers;
   }
 
-  _checkResponse = (res) => {
-    if (res.ok) return res.json();
-    return Promise.reject(`Error: ${res.status}`);
-  };
+  // _checkResponse = (res) => {
+  //   if (res.ok) return res.json();
+  //   return Promise.reject(`Error: ${res.status}`);
+  // };
+  _checkResponse = (res) =>
+    res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
@@ -58,7 +60,7 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  updateAvatar({ avatarUrl }) {
+  updateAvatar(avatarUrl) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,

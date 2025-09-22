@@ -307,20 +307,19 @@ avatarCloseBtn.addEventListener("click", () => closeModal(avatarModal));
 avatarForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const submitBtn = e.submitter;
+  const url = avatarForm.querySelector("#profile-avatar-input").value.trim();
+
   setButtonText(submitBtn, true, "Saving...");
-
-  const url = avatarForm.querySelector("#profile-avatar-input").value;
-
   api
     .updateAvatar(url)
     .then((user) => {
       document.getElementById("profile-avatar").src = user.avatar;
       avatarForm.reset();
-      // disableButton(submitBtn); //check
+      disableButton(submitBtn); //check
       closeModal(avatarModal);
     })
     .catch(console.error)
-    .finally(() => setButtonText?.(submitBtn, false));
+    .finally(() => setButtonText(submitBtn, false, "Save"));
 });
 
 enableValidation(settings);
