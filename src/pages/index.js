@@ -85,7 +85,9 @@ const api = new Api({
 api
   .getAppInfo()
   .then(([user, cards]) => {
-    // (optional) set profile UI from `user`
+    profileNameEl.textContent = user.name;
+    profileDescriptionEl.textContent = user.about;
+    document.getElementById("profile-avatar").src = user.avatar;
     cards.forEach((item) => cardsList.append(getCardElement(item)));
   })
   .catch(console.error);
@@ -138,7 +140,6 @@ function handleDeleteSubmit(evt) {
   evt.preventDefault();
   const submitBtn = evt.submitter;
 
-  const prev = submitBtn.textContent;
   submitBtn.textContent = "Deleting...";
   submitBtn.disabled = true;
 
@@ -152,7 +153,8 @@ function handleDeleteSubmit(evt) {
     })
     .catch(console.error)
     .finally(() => {
-      setButtonText(submitBtn, "Deleting..."); //check
+      setButtonText(submitBtn, false); //check
+      submitBtn.disabled = false;
     });
 }
 
@@ -304,16 +306,17 @@ avatarCloseBtn.addEventListener("click", () => closeModal(avatarModal));
 
 avatarForm.addEventListener("submit", (e) => {
   e.preventDefault();
-  const avatar = avatarForm.querySelector("#profile-avatar-input").value;
   const submitBtn = e.submitter;
-  setButtonText?.(submitBtn, true);
+  setButtonText(submitBtn, true, "Saving...");
+
+  const url = avatarForm.querySelector("#profile-avatar-input").value;
 
   api
-    .updateAvatar(avatar)
-    .then((avatar) => {
-      document.getElementById("profile-avatar").src = avatar;
+    .updateAvatar(url)
+    .then((user) => {
+      document.getElementById("profile-avatar").src = user.avatar;
       avatarForm.reset();
-      disableButton(submitBtn); //check
+      // disableButton(submitBtn); //check
       closeModal(avatarModal);
     })
     .catch(console.error)

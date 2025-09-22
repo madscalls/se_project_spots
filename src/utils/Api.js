@@ -4,29 +4,15 @@ class Api {
     this._headers = headers;
   }
 
-  _checkResponse(res) {
-    (res) => {
-      if (res.ok) return res.json();
-      return Promise.reject(`Error: ${res.status}`);
-    };
-  }
+  _checkResponse = (res) => {
+    if (res.ok) return res.json();
+    return Promise.reject(`Error: ${res.status}`);
+  };
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
     }).then(this._checkResponse);
-  }
-
-  addCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
-      method: "POST",
-      headers: this._headers,
-      body: JSON.stringify({ name, link }),
-    }).then(this._checkResponse);
-  }
-
-  getAppInfo() {
-    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 
   getInitialCards() {
@@ -35,18 +21,8 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  changeLikeStatus(cardId, isLiked) {
-    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      method: isLiked ? "DELETE" : "PUT",
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-
-  removeCard(cardId) {
-    return fetch(`${this._baseUrl}/cards/${cardId}`, {
-      method: "DELETE",
-      headers: this._headers,
-    }).then(this._checkResponse);
+  getAppInfo() {
+    return Promise.all([this.getUserInfo(), this.getInitialCards()]);
   }
 
   editUserInfo({ name, about }) {
@@ -60,12 +36,34 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  updateAvatar({ avatar }) {
+  addCard({ name, link }) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({ name, link }),
+    }).then(this._checkResponse);
+  }
+
+  removeCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  changeLikeStatus(cardId, isLiked) {
+    return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      method: isLiked ? "DELETE" : "PUT",
+      headers: this._headers,
+    }).then(this._checkResponse);
+  }
+
+  updateAvatar({ avatarUrl }) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar,
+        avatar: avatarUrl,
       }),
     }).then(this._checkResponse);
   }
