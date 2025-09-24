@@ -21,6 +21,9 @@ const avatarBtn = document.querySelector(".profile__avatar-btn");
 const avatarCloseBtn = avatarModal.querySelector(".modal__close-btn");
 const avatarForm = avatarModal.querySelector("#edit-avatar-form");
 
+const avatarUrlInput = avatarForm.querySelector("#profile-avatar-input");
+const profileAvatarImg = document.getElementById("profile-avatar");
+
 document.getElementById("header-logo").src = logoSrc;
 document.getElementById("profile-avatar").src = avatarSrc;
 document.getElementById("edit-icon").src = editIconSrc;
@@ -87,7 +90,7 @@ api
   .then(([user, cards]) => {
     profileNameEl.textContent = user.name;
     profileDescriptionEl.textContent = user.about;
-    document.getElementById("profile-avatar").src = user.avatar;
+    profileAvatarImg.src = user.avatar;
     cards.forEach((item) => cardsList.append(getCardElement(item)));
   })
   .catch(console.error);
@@ -242,11 +245,11 @@ function handleEditProfileSubmit(evt) {
     .then((user) => {
       profileNameEl.textContent = user.name;
       profileDescriptionEl.textContent = user.about;
+      closeModal(editModal);
     })
     .catch(console.error)
     .finally(() => {
       setButtonText(submitBtn, false);
-      closeModal(editModal);
     });
 }
 
@@ -313,9 +316,9 @@ avatarForm.addEventListener("submit", (e) => {
   api
     .updateAvatar(url)
     .then((user) => {
-      document.getElementById("profile-avatar").src = user.avatar;
+      profileAvatarImg.src = user.avatar;
       avatarForm.reset();
-      disableButton(submitBtn); //check
+      disableButton(submitBtn, settings); //check
       closeModal(avatarModal);
     })
     .catch(console.error)

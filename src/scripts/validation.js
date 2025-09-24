@@ -97,21 +97,21 @@ export const enableValidation = (config) => {
 //enableValidation(settings);
 
 // close modal with Esc
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    const openModal = document.querySelector(".modal_is-opened");
-    if (openModal) {
-      closeModal(openModal);
-    }
-  }
-});
+// document.addEventListener("keydown", (evt) => {
+//   if (evt.key === "Escape") {
+//     const openModal = document.querySelector(".modal_is-opened");
+//     if (openModal) {
+//       closeModal(openModal);
+//     }
+//   }
+// });
 
-// close modal by clicking outside modal container
-document.addEventListener("mousedown", (evt) => {
-  if (
-    evt.target.classList.contains("modal") &&
-    evt.target.classList.contains("modal_is-opened")
-  ) {
-    closeModal(evt.target);
-  }
-});
+// // close modal by clicking outside modal container
+// document.addEventListener("mousedown", (evt) => {
+//   if (
+//     evt.target.classList.contains("modal") &&
+//     evt.target.classList.contains("modal_is-opened")
+//   ) {
+//     closeModal(evt.target);
+//   }
+// });

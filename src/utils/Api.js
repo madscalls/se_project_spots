@@ -4,10 +4,6 @@ class Api {
     this._headers = headers;
   }
 
-  // _checkResponse = (res) => {
-  //   if (res.ok) return res.json();
-  //   return Promise.reject(`Error: ${res.status}`);
-  // };
   _checkResponse = (res) =>
     res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 
