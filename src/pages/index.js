@@ -143,6 +143,8 @@ function handleDeleteSubmit(evt) {
   evt.preventDefault();
   const submitBtn = evt.submitter;
 
+  submitBtn.dataset.defaultText ??= submitBtn.textContent;
+
   submitBtn.textContent = "Deleting...";
   submitBtn.disabled = true;
 
@@ -157,6 +159,7 @@ function handleDeleteSubmit(evt) {
     .catch(console.error)
     .finally(() => {
       setButtonText(submitBtn, false); //check
+      submitBtn.textContent = submitBtn.dataset.defaultText || "Delete";
       submitBtn.disabled = false;
     });
 }

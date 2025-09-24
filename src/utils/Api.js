@@ -7,16 +7,19 @@ class Api {
   _checkResponse = (res) =>
     res.ok ? res.json() : Promise.reject(`Error: ${res.status}`);
 
-  getUserInfo() {
-    return fetch(`${this._baseUrl}/users/me`, {
+  _request(endpoint, options = {}) {
+    return fetch(`${this._baseUrl}${endpoint}`, {
       headers: this._headers,
+      ...options,
     }).then(this._checkResponse);
   }
 
+  getUserInfo() {
+    return this._request("/users/me");
+  }
+
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-    }).then(this._checkResponse);
+    return this._request("/cards");
   }
 
   getAppInfo() {
@@ -24,22 +27,21 @@ class Api {
   }
 
   editUserInfo({ name, about }) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return this._request("/users/me", {
       method: "PATCH",
-      headers: this._headers,
       body: JSON.stringify({
         name,
         about,
       }),
-    }).then(this._checkResponse);
+    });
   }
 
   addCard({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return this._request("/cards", {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({ name, link }),
-    }).then(this._checkResponse);
+    });
   }
 
   removeCard(cardId) {
@@ -57,14 +59,20 @@ class Api {
   }
 
   updateAvatar(avatarUrl) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
+    return this._request("/users/me/avatar", {
       method: "PATCH",
-      headers: this._headers,
-      body: JSON.stringify({
-        avatar: avatarUrl,
-      }),
-    }).then(this._checkResponse);
+      body: JSON.stringify({ avatar: avatarUrl }),
+    });
   }
+
+  //   return fetch(`${this._baseUrl}/users/me/avatar`, {
+  //     method: "PATCH",
+  //     headers: this._headers,
+  //     body: JSON.stringify({
+  //       avatar: avatarUrl,
+  //     }),
+  //   }).then(this._checkResponse);
+  // }
 }
 
 export default Api;
