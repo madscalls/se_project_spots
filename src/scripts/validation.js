@@ -1,6 +1,6 @@
 //config
 export const settings = {
-  formSelector: ".modal__form",
+  formSelector: ".modal__form:not(#delete-form)",
   inputSelector: ".modal__input", //inputEl??
   submitButtonSelector: ".modal__save-btn",
   inactiveButtonClass: "modal__save-btn_disabled",
@@ -20,7 +20,6 @@ const hideInputError = (formEl, inputEl, config) => {
   const errorMsgID = `#${inputEl.id}-error`;
   const errorMsgEl = formEl.querySelector(errorMsgID);
   errorMsgEl.textContent = "";
-  inputEl.classList.remove(config.inputErrorClass);
   inputEl.classList.remove(config.inputErrorClass);
 };
 //validates input and show/hide accordingly
@@ -48,7 +47,7 @@ const toggleButtonState = (inputList, buttonEl, config) => {
 };
 
 //disable submit for styling
-const disableButton = (buttonEl, config) => {
+export const disableButton = (buttonEl, config) => {
   buttonEl.classList.add(config.inactiveButtonClass);
   buttonEl.disabled = true;
 };
@@ -60,7 +59,7 @@ const enableButton = (buttonEl, config) => {
 };
 
 //removes error msgs when we re0pen modal
-function resetValidation(formEl, config) {
+export function resetValidation(formEl, config) {
   const inputList = Array.from(formEl.querySelectorAll(config.inputSelector));
   const buttonEl = formEl.querySelector(config.submitButtonSelector);
 
@@ -95,24 +94,24 @@ export const enableValidation = (config) => {
 };
 
 //activates form validation
-enableValidation(settings);
+//enableValidation(settings);
 
 // close modal with Esc
-document.addEventListener("keydown", (evt) => {
-  if (evt.key === "Escape") {
-    const openModal = document.querySelector(".modal_is-opened");
-    if (openModal) {
-      closeModal(openModal);
-    }
-  }
-});
+// document.addEventListener("keydown", (evt) => {
+//   if (evt.key === "Escape") {
+//     const openModal = document.querySelector(".modal_is-opened");
+//     if (openModal) {
+//       closeModal(openModal);
+//     }
+//   }
+// });
 
-// close modal by clicking outside modal container
-document.addEventListener("mousedown", (evt) => {
-  if (
-    evt.target.classList.contains("modal") &&
-    evt.target.classList.contains("modal_is-opened")
-  ) {
-    closeModal(evt.target);
-  }
-});
+// // close modal by clicking outside modal container
+// document.addEventListener("mousedown", (evt) => {
+//   if (
+//     evt.target.classList.contains("modal") &&
+//     evt.target.classList.contains("modal_is-opened")
+//   ) {
+//     closeModal(evt.target);
+//   }
+// });

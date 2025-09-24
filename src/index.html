@@ -16,11 +16,29 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            id="profile-avatar"
-            alt="Bessie Coleman avatar"
-            class="profile__avatar"
-          />
+          <!--avatar edit hover modal-->
+          <div class="profile__avatar-container">
+            <button
+              type="button"
+              class="profile__avatar-btn"
+              aria-label="Edit avatar"
+            >
+              <img
+                id="avatar-edit-icon"
+                class="profile__avatar-icon"
+                aria-hidden="true"
+                alt="white pencil"
+              />
+              <span class="profile__avatar-text">Edit avatar</span>
+            </button>
+
+            <img
+              id="profile-avatar"
+              alt="Bessie Coleman avatar"
+              class="profile__avatar"
+            />
+          </div>
+
           <div class="profile__column">
             <div class="profile__avatar-content">
               <h1 class="profile__name">Bessie Coleman</h1>
@@ -145,6 +163,48 @@
         ></button>
         <img src="#" alt="" class="modal__image" />
         <p class="modal__caption"></p>
+      </div>
+    </div>
+
+    <!--AVATAR MODAL SSSSSSSSSSSSSSSTYLE-->
+
+    <div class="modal" id="avatar-modal">
+      <div class="modal__content modal__avatar-edit">
+        <div class="modal__header">
+          <button class="modal__close-btn" type="button"></button>
+          <h3 class="modal__title">Edit profile Avatar</h3>
+        </div>
+        <form class="modal__form" id="edit-avatar-form">
+          <label class="modal__label" for="profile-avatar-input"
+            >Profile Picture
+            <input
+              id="profile-avatar-input"
+              type="url"
+              class="modal__input"
+              name="avatar"
+              placeholder="avatar goes here"
+              required
+            />
+            <span class="modal__error" id="profile-avatar-input-error"></span>
+          </label>
+          <button class="modal__save-btn" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+    <!--DELETE MODAL-->
+    <div class="modal" id="delete-modal">
+      <div class="modal__container">
+        <div class="modal__content">
+          <button class="modal__close-btn" type="button"></button>
+          <h3 class="modal__title">
+            Are you sure you want to delete this image?
+          </h3>
+          <form class="modal__form modal__delete" id="delete-form">
+            <button class="modal__delete-btn" type="submit">Delete</button>
+            <button class="modal__cancel-btn" type="button">Cancel</button>
+          </form>
+        </div>
       </div>
     </div>
   </body>
